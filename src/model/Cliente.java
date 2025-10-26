@@ -29,6 +29,6 @@ public class Cliente extends Persona{
     //Metodo para modificar el string de la clase Cliente (Polimorfismo)
     @Override
     public String toString(){
-        return "Nombre: " + getNombre() + " | Documento: " + getDocumento() + " | Telefono " + telefono;
+        return "Nombre: " + getNombre() + " | Documento: " + getDocumento() + " | Telefono: " + telefono;
     }
 }

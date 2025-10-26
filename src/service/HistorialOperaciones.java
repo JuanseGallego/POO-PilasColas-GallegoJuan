@@ -64,7 +64,7 @@ public class HistorialOperaciones {
     //Metodo para listar las operaciones de la mas reciente a la mas antigua
     public static void listarHistorial( Stack<Operacion> historialOperaciones ){
         if( historialOperaciones.isEmpty() ){
-            System.err.println("No hay ninguna operacion registrada, el historial esta vacio");
+            System.out.println("No hay ninguna operacion registrada, el historial esta vacio");
         }else{
             System.out.println("Historial de Operaciones");
             System.out.printf("%-25s | %-40s", "Tipo de Operacion", "Datos Afectados");
@@ -87,16 +87,21 @@ public class HistorialOperaciones {
             return;
         }
         
+        boolean encontrado = false;
+        
         //Recorrer todo el historial de operaciones y buscar el ID de la orden de servicio que necesita el usuario e imprimir los datos
         for( Operacion operacion : historialOperaciones ){
             if( Integer.parseInt(id) == operacion.getOrdenServicio().getId() ){
                 System.out.println("");
                 operacion.getOrdenServicio().mostrarDatos();
-                return;
-            }else{
-                System.out.println("\nEl ID no ha sido encontrado dentro del historial de operaciones");
+                encontrado = true;
                 return;
             }
         }
+        
+        if( encontrado == false ){
+            System.out.println("\nEl ID no ha sido encontrado dentro del historial de operaciones");
+        }
+        
     }
 }

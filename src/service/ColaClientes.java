@@ -33,7 +33,7 @@ public class ColaClientes {
         String telefono = sc.nextLine().trim();
         
         if( telefono.isEmpty() ){
-            System.out.println("CUIDADO - La descripcion del problema no puede estar vacia");
+            System.out.println("CUIDADO - El telefono del cliente no puede estar vacio");
             return;
         }
         
@@ -61,16 +61,24 @@ public class ColaClientes {
         if( colaClientes.isEmpty() ){
             System.out.println("No hay ningun cliente en espera, la cola esta vacia");
         }else{
-            id += 1;            //Sumar de manera secuencial al contador que sirve como id de orden creada
             numeroCliente += 1; //Sumar de manera secuencial al contador que sirve como contador de clientes en la cola
             
-            //Atender cliente y solicitar la descripcion del problema con el que cuenta
-            Cliente cliente = colaClientes.poll();
+            //Solicitar la descripcion del problema con el que cuenta
             System.out.println("Se ha atendido al cliente #" + numeroCliente);
             System.out.print("Ingrese la descripcion del problema que presenta el cliente: ");
             String descripcionProblema = sc.nextLine();
             
-            //Definir el estado y la fecha para crear la orden
+            if( descripcionProblema.isEmpty() ){
+                System.out.println("CUIDADO - La descripcion del problema no puede estar vacia");
+                numeroCliente -= 1;
+                return;
+            }
+            
+            //Atender cliente
+            Cliente cliente = colaClientes.poll();
+            
+            //Definir el estado, el ID y la fecha para crear la orden
+            id += 1;                            //Sumar de manera secuencial al contador que sirve como id de orden creada
             String estado = "ABIERTA";
             Date fechaCreacion = new Date();
             

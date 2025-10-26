@@ -1,4 +1,4 @@
-Proyecto: Gestor de Atención y Órdenes — POO con Pilas y Colas
+//Proyecto: Gestor de Atención y Órdenes — POO con Pilas y Colas
 
 
 
